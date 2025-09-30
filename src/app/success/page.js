@@ -1,21 +1,19 @@
 "use client";
-export const dynamic = 'force-dynamic';
-import { useEffect, useState } from "react";
+export const dynamic = "force-dynamic";
+
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 
 export default function Success() {
-  const [status, setStatus] = useState(""); // final message
+  const [status, setStatus] = useState(""); 
   const [loading, setLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-
-  // useSearchParams must be called at the top level of a client component
   const searchParams = useSearchParams();
 
   useEffect(() => {
     if (!searchParams) return;
 
-    // Convert to query string
     const queryString = new URLSearchParams(searchParams.entries()).toString();
     if (!queryString) return;
 
@@ -43,29 +41,30 @@ export default function Success() {
     };
 
     fetchConfirmation();
-  }, [searchParams]); // use the hook value as dependency
+  }, [searchParams]);
 
-  if (loading)
+  if (loading) {
     return (
       <div>
         <h1 className="text-4xl font-bold">Loading...</h1>
         <p>Checking payment...</p>
       </div>
     );
+  }
 
   return (
-    <>
+    <Suspense fallback={<p>Loading confirmation...</p>}>
       {isError ? (
-        <>
+        <div>
           <h1 className="text-4xl font-bold text-red-500">Error</h1>
           <p>{status}</p>
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <h1 className="text-4xl font-bold">Success</h1>
           <p>{status}</p>
-        </>
+        </div>
       )}
-    </>
+    </Suspense>
   );
 }
