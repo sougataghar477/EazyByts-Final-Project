@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Tech Conference 2025",
+    "date": "2025-10-15T09:00:00Z",
+    "location": {
+      "venue": "International Convention Center",
+      "city": "San Francisco",
+      "country": "USA"
+    },
+    "category": "Technology",
+    "price": 199.99,
+    "availableSeats": 300,
+    "organizer": "TechWorld Inc."
+  },
+  {
+    "title": "Music Fest 2025",
+    "date": "2025-11-01T18:00:00Z",
+    "location": {
+      "venue": "Central Park",
+      "city": "New York",
+      "country": "USA"
+    },
+    "category": "Music",
+    "price": 99.99,
+    "availableSeats": 5000,
+    "organizer": "LiveNation"
+  },
+  {
+    "title": "Startup Pitch Night",
+    "date": "2025-09-30T17:30:00Z",
+    "location": {
+      "venue": "Innovation Hub",
+      "city": "Bangalore",
+      "country": "India"
+    },
+    "category": "Business",
+    "price": 0,
+    "availableSeats": 150,
+    "organizer": "Venture Capital Group"
+  },
+  {
+    "title": "Art & Wine Exhibition",
+    "date": "2025-12-05T15:00:00Z",
+    "location": {
+      "venue": "City Art Gallery",
+      "city": "Paris",
+      "country": "France"
+    },
+    "category": "Art",
+    "price": 45.00,
+    "availableSeats": 200,
+    "organizer": "Paris Culture Club"
+  },
+  {
+    "title": "Marathon 2025",
+    "date": "2025-10-20T06:00:00Z",
+    "location": {
+      "venue": "City Square",
+      "city": "Berlin",
+      "country": "Germany"
+    },
+    "category": "Sports",
+    "price": 50.00,
+    "availableSeats": 10000,
+    "organizer": "Berlin Sports Council"
+  }
+]

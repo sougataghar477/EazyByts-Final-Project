@@ -4,14 +4,16 @@ import { useEffect,useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-toastify";
-import Admin from "@/components/Admin";
-import User from "@/components/User";
 export default function Dashboard() {
   const { data: session, status } = useSession();
-  console.log(session);
-  const role = session?.user?.role;
+  console.log(session)
   const router = useRouter();
   const toastShown = useRef(false);
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status, router]);
 useEffect(() => {
     if (sessionStorage.getItem("dashboardToastShown")) return;
     sessionStorage.setItem("dashboardToastShown", "true");
@@ -41,16 +43,17 @@ useEffect(() => {
   if (status === "loading") {
     return <p>Loading....</p>;
   }
-  if (!session) return <>
-    <h1 className="text-4xl font-black">Welcome to Event Management Website</h1>
-    <Link className="underline block mt-4" href={"/login"}>Please go to Login page if you are are registered</Link>
-    <Link className="underline block mt-4" href={"/register"}>Or Register if you have not already</Link>
-  </>;
-  if(role==="admin"){
-    return <Admin/>
-  }
-  else{
-    return <User/>
-  }
- 
+  if (!session) return null;
+
+
+  return (
+    <>
+      <h1 className="font-black text-4xl mb-4">Dashboard</h1>
+      <div className="grid md:grid-cols-2 gap-4">
+        <Link className="p-4 shadow rounded-lg font-bold" href={"/events"}>Events</Link>
+        <Link className="p-4 shadow rounded-lg font-bold" href={"/events/upcoming"}>Upcoming Events(within 1 week)</Link>
+        <Link className="p-4 shadow rounded-lg font-bold" href={"/events/booked"}>Booked Events</Link>
+      </div>
+    </>
+  );
 }
