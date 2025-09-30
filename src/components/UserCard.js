@@ -1,4 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 export default function UserCard({ user, setIsModalOpen, setIndexOfEditedUser, index, onDelete }) {
   const handleDelete = async () => {
     if (!confirm(`Are you sure you want to delete ${user.email}?`)) return;
