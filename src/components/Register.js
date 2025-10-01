@@ -101,7 +101,7 @@ export default function Register() {
           <label htmlFor="password" className="mb-1 font-bold italic">
             Password
           </label>
-          <div className="relative bg-amber-600">
+          <div className="relative">
           <input
             id="password"
             name="password"
