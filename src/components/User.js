@@ -22,7 +22,7 @@ useEffect(() => {
       const res = await fetch(process.env.NEXT_PUBLIC_URL + "/api/events?fromDashboard=1");
       const data = await res.json();
 
-      if (data?.events?.length > 0 && session?.user?.role==="user") {
+      if (data?.events?.length > 0 ) {
         toast(
           () => (
             <Link href="/events/upcoming">
@@ -38,7 +38,7 @@ useEffect(() => {
   };
 
   fetchEvents();
-}, [session?.user?.role]);
+}, []);
 
   if (status === "loading") {
     return <p>Loading....</p>;
