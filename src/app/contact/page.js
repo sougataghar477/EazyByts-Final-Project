@@ -76,7 +76,7 @@ export default function Contact() {
 
       {/* submit button */}
       <button
-        className="block mt-4 rounded-lg cursor-pointer bg-green-700 px-4 py-2 text-white disabled:bg-green-400 disabled:cursor-auto"
+        className="block mt-4 rounded-lg cursor-pointer bg-sky-500 px-4 py-2 text-white disabled:bg-sky-400 disabled:cursor-auto"
         type="submit"
         disabled={isSending}
       >
